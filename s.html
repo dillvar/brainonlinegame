@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Bar Example</title>
+  <style>
+    /* CSS styles for the search bar */
+    .search-container {
+      margin: 20px;
+    }
+
+    .search-container input[type=text] {
+      padding: 10px;
+      width: 300px;
+    }
+
+    .search-container button {
+      padding: 10px 20px;
+    }
+
+    .results {
+      margin-top: 20px;
+    }
+
+    .results a {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter search term">
+    <button onclick="search()">Search</button>
+  </div>
+
+  <div class="results" id="searchResults"></div>
+
+  <script>
+    // JavaScript code for handling search and displaying results
+    function search() {
+      var input = document.getElementById('searchInput').value;
+      var resultsDiv = document.getElementById('searchResults');
+      resultsDiv.innerHTML = '';
+
+      // Perform your search operation based on the input
+      // Here, we'll assume a simple example search operation
+
+      // List of search results with their corresponding links
+      var searchResults = [
+        { title: 'Result 1', link: 'https://example.com/result1' },
+        { title: 'Result 2', link: 'https://example.com/result2' },
+        { title: 'Result 3', link: 'https://example.com/result3' },
+      ];
+
+      var matchedResults = searchResults.filter(function (result) {
+        return result.title.toLowerCase().includes(input.toLowerCase());
+      });
+
+      if (matchedResults.length === 0) {
+        resultsDiv.innerHTML = 'No results found.';
+      } else {
+        matchedResults.forEach(function (result) {
+          var link = document.createElement('a');
+          link.href = result.link;
+          link.textContent = result.title;
+          resultsDiv.appendChild(link);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
