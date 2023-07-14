@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brain Game</title>
+  <style>
+    body {
+      background-color:#66bdc7;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #game-container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Brain Game</h1>
+  <div id="game-container">
+    <p id="question"></p>
+    <input type="text" id="answer" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit</button>
+  </div>
+  
+  <script>
+    // Array of questions
+    var questions = [
+      { question: "What is the capital of France?", answer: "Paris" },
+      { question: "What is the square root of 25?", answer: "5" },
+      { question: "What is the chemical symbol for gold?", answer: "Au" },
+      { question: "What is the chemical symbol for SILVER?", answer: "Ag" },
+      { question: "who is the captain of Indian cricket team?",answer: "Rohit sharma" },
+      { question: "What did the space organization in India,",answer: "isro" },
+      { question: "What is the chemical symbol for silver?", answer: "Ag" },
+      { question: "What is the capital of india?", answer:"delhi" },
+      { question: "What is the square root of 625?", answer: "25" },
+      { question: "What is the famous coding language?", answer: "python" },
+   
+    ];
+    
+    // Randomly select a question
+    var randomIndex = Math.floor(Math.random() * questions.length);
+    var currentQuestion = questions[randomIndex];
+    
+    // Display the question
+    var questionElement = document.getElementById("question");
+    questionElement.textContent = currentQuestion.question;
+    
+    // Check the user's answer
+    function checkAnswer() {
+      var userAnswer = document.getElementById("answer").value;
+      if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
+        alert("Correct answer!");
+      } else {
+        alert("Wrong answer. Try again!");
+      }
+    }
+  </script>
+</body>
+</html>
+<!   
+>
